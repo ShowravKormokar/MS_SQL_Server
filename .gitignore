@@ -1,0 +1,27 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore build and log files
+*.log
+*.tmp
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+.ques/
+*.swp
+
+# Ignore backup files
+*.bak
+*.old
+
+# Ignore compiled binaries
+*.exe
+*.dll
+
+# Ignore database dumps
+*.sql
+
+# Ignore PDFs or manuals not meant for repo
+adms_lab_manual_spring_2025.pdf
