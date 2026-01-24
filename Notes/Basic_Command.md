@@ -74,7 +74,7 @@ DROP TABLE Table_Name;
 Insert Data
 ```sql
 INSERT INTO Table_Name (COL1, COL2, COL3, COL4, COL5, COL6)
-VALUES (1, 'Value1', 'Value2', 50000, 'Dept', GETDATE());
+VALUES (1, 'Value1', 'Value2', 0000.00, 'Value', GETDATE());
 ```
 ## Select Data
 All columns:
@@ -109,14 +109,18 @@ TRUNCATE TABLE Table_Name;
 ```
 
 ## ⚖️ DELETE vs TRUNCATE
-Feature	DELETE	TRUNCATE
-WHERE clause	✅ Yes	❌ No
-Row-by-row delete	✅ Yes	❌ No
-Speed	Slower	Faster
-Identity reset	❌ No	✅ Yes
-Transaction log	More logging	Minimal logging
-Rollback	✅ Possible	❌ Not possible
-🔹 Constraints (Basic)
+
+| Feature            | DELETE       | TRUNCATE     |
+|--------------------|--------------|--------------|
+| WHERE clause       | ✅ Yes       | ❌ No        |
+| Row-by-row delete  | ✅ Yes       | ❌ No        |
+| Speed              | Slower       | Faster       |
+| Identity reset     | ❌ No        | ✅ Yes       |
+| Transaction log    | More logging | Minimal logging |
+| Rollback           | ✅ Possible  | ❌ Not possible |
+
+
+## 🔹 Constraints (Basic)
 
 ```sql
 -- Primary Key
@@ -165,5 +169,3 @@ Practice regularly to build strong SQL fundamentals.
 Last updated: January 2026
 
 ***
-
-**Copy the code block above, save it as `SQL-Server-Commands.md`, and you'll have a perfectly formatted, downloadable Markdown file!**

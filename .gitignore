@@ -20,8 +20,5 @@ Thumbs.db
 *.exe
 *.dll
 
-# Ignore database dumps
-*.sql
-
 # Ignore PDFs or manuals not meant for repo
 adms_lab_manual_spring_2025.pdf
