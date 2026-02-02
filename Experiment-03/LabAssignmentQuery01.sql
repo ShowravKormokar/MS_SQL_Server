@@ -103,7 +103,12 @@ FROM Worker
 GROUP BY DEPARTMENT;
 
 --14. List all the employees who have maximum or minimum salary in each department
--- Not understand
+-- Not understand fully
+SELECT FIRST_NAME, SALARY FROM Worker JOIN
+(SELECT DEPT_NAME, MAX(SALARY) AS MAX_SALARY
+FROM Worker
+GROUP BY DEPT_NAME) as TempTable 
+ON TempTable.MAX_SALARY = Worker.SALARY;
 
 --15. Write an SQL query to find the position of the alphabet ('r') in the FIRST_NAME column 'Rana' from Worker table.
 SELECT CHARINDEX('r', FIRST_NAME) AS Position_of_r
