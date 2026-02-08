@@ -104,11 +104,26 @@ GROUP BY DEPARTMENT;
 
 --14. List all the employees who have maximum or minimum salary in each department
 -- Not understand fully
-SELECT FIRST_NAME, SALARY FROM Worker JOIN
-(SELECT DEPT_NAME, MAX(SALARY) AS MAX_SALARY
+SELECT w.FIRST_NAME, w.SALARY, w.DEPARTMENT
+FROM Worker w
+JOIN (
+    SELECT DEPARTMENT, MAX(SALARY) AS MAX_SALARY,
+           MIN(SALARY) AS MIN_SALARY
+    FROM Worker
+    GROUP BY DEPARTMENT
+) TempTable
+ON w.DEPARTMENT = TempTable.DEPARTMENT
+AND (w.SALARY = TempTable.MAX_SALARY OR w.SALARY = TempTable.MIN_SALARY);
+
+--Another way
+SELECT *
 FROM Worker
-GROUP BY DEPT_NAME) as TempTable 
-ON TempTable.MAX_SALARY = Worker.SALARY;
+WHERE SALARY IN (
+    SELECT MAX(SALARY) FROM Worker GROUP BY DEPARTMENT
+    UNION
+    SELECT MIN(SALARY) FROM Worker GROUP BY DEPARTMENT
+);
+
 
 --15. Write an SQL query to find the position of the alphabet ('r') in the FIRST_NAME column 'Rana' from Worker table.
 SELECT CHARINDEX('r', FIRST_NAME) AS Position_of_r
