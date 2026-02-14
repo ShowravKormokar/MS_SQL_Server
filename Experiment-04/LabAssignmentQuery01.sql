@@ -76,3 +76,53 @@ SELECT W1.FIRST_NAME, W1.LAST_NAME, W1.SALARY
 FROM Worker W1
 JOIN Worker W2 ON W1.SALARY = W2.SALARY AND W1.WORKER_ID <> W2.WORKER_ID
 ORDER BY W1.SALARY;
+
+--14. Write an SQL query to show the second highest salary from a table.
+SELECT MAX(SALARY) AS SecondHighestSalary
+FROM Worker
+WHERE SALARY < (SELECT MAX(SALARY) FROM Worker);
+
+--15. Write an SQL query to fetch the first 50% records from a table.
+SELECT TOP 50 PERCENT *
+FROM Worker
+ORDER BY WORKER_ID;
+
+--16. Write an SQL query to fetch the departments that have less than five people in it.
+SELECT DEPARTMENT, COUNT(*) AS NO_EMP
+FROM Worker
+GROUP BY DEPARTMENT
+HAVING COUNT(*) < 5;
+
+--17. Write an SQL query to show all departments along with the number of people in there.
+SELECT DEPARTMENT, COUNT(*) AS NO_EMP
+FROM Worker
+GROUP BY DEPARTMENT;
+
+--18. Write an SQL query to show the last record from table.
+SELECT TOP 1 *
+FROM Worker
+ORDER BY WORKER_ID DESC;
+
+--19. Write an SQL query to fetch the first row of a table.
+SELECT TOP 1 *
+FROM Worker
+ORDER BY WORKER_ID ASC;
+
+--20. Write an SQL query to fetch the last five records from table.
+SELECT TOP 5 *
+FROM Worker
+ORDER BY WORKER_ID DESC;
+
+--21. Write an SQL query to print the name of employees having the highest salary in each department.
+SELECT W.FIRST_NAME, W.LAST_NAME, W.DEPARTMENT, W.SALARY
+FROM Worker W
+WHERE W.SALARY = (
+    SELECT MAX(SALARY)
+    FROM Worker
+    WHERE DEPARTMENT = W.DEPARTMENT
+);
+
+--22. Write an SQL query to fetch three max salaries from table.
+SELECT DISTINCT TOP 3 SALARY
+FROM Worker
+ORDER BY SALARY DESC;
