@@ -13,7 +13,7 @@ CREATE TABLE Employee (
 );
 
 --2nd table structure
-CREATE TABLE Department (
+CREATE TABLE DeptLocation (
     deptID INT PRIMARY KEY,
     deptName NVARCHAR(50),
     location NVARCHAR(50)
@@ -29,7 +29,7 @@ VALUES
 (5, 'Ahsan', 'Habib', 'English', 28, 28000);
 
 -- Insert data on 2nd table (Depertment)
-INSERT INTO Department (deptID, deptName, location)
+INSERT INTO DeptLocation (deptID, deptName, location)
 VALUES
 (1, 'CSE', 'Talaimari'),
 (2, 'EEE', 'Talaimari'),
@@ -38,4 +38,4 @@ VALUES
 
 -- fetch to verify the inserted data
 SELECT * FROM Employee;
-SELECT * FROM Department;
+SELECT * FROM DeptLocation;
