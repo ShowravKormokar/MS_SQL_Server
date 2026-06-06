@@ -47,3 +47,7 @@ INSERT INTO Account_Detail (Account_no, Acc_holder_name, Amount, Branch_Id, Zone
 (1992213, 'Mr. Jibon',       170000, 'B-102', 'Z-803'),
 (1882212, 'Bushra',          180000, 'B-103', 'Z-802'),
 (1882213, 'Sajib',           170000, 'B-104', 'Z-801');
+
+select * from Account_Detail
+select * from Zone
+select * from Branch
